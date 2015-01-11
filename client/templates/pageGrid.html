@@ -1,0 +1,40 @@
+<template name="pageGrid">
+  <div class="ui page grid">
+    <div class="four wide column">
+      <div class="ui sticky">
+        <div class="controls ui segment">
+          <div class="ui segment">
+            <a>Shopping List</a>
+          </div>
+          {{#each foodFilters}}
+            {{> foodFilter}}
+          {{/each}}
+          <div class="addFood ui form">
+            <div class="field">
+              <input type="text" placeholder="add food">
+            </div>
+            <div class="field">
+              <input type="text" placeholder="food category">
+            </div>
+            <div class="field">
+              <input type="text" placeholder="quantity, eg. 4">
+            </div>
+            <div class="field">
+              <input type="text" placeholder="eg. bananas, boxes, cans etc.">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="twelve wide column">
+      {{#each foodCategoriesChecked}}
+        <div class="ui grid">
+          {{#each foodsOfThatCategory}}
+            {{> food}}
+          {{/each}}
+        </div>
+        <div class="ui divider"></div>
+      {{/each}}
+    </div>
+  </div>
+</template>
