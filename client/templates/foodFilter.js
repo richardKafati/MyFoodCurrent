@@ -12,8 +12,8 @@ Template.foodFilter.events({
     var catArray = Session.get("foodCategoriesChecked");
 
     if (toggleToTrue) {
-      console.log(toggleToTrue);
-      console.log("Adding: " + filter);
+      //console.log(toggleToTrue);
+      //console.log("Adding: " + filter);
 
       // push new filter to arrray
       catArray.push(filter);
@@ -21,19 +21,19 @@ Template.foodFilter.events({
       // uses underscore to manipulate the array http://underscorejs.org/#uniq
       catArray = _.uniq(catArray);
 
-      console.log(catArray);
+      //console.log(catArray);
 
       // Put Array back into Session Variable for Update
       Session.set("foodCategoriesChecked", catArray);
 
     } else {
-      console.log(toggleToTrue);
-      console.log("Removing: " + filter);
+      //console.log(toggleToTrue);
+      //console.log("Removing: " + filter);
 
       // uses underscore to delete the filter the array http://underscorejs.org/#without
       catArray = _.without(catArray, filter)
 
-      console.log(catArray);
+      //console.log(catArray);
 
       // Put Array back into Session Variable for Update
       Session.set("foodCategoriesChecked", catArray);

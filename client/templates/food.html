@@ -1,11 +1,18 @@
 <template name="food">
   <div class="four wide column">
+    <div class="ui right aligned grid">
+      <div class="column">
+        <div class="delete ui aligned circular icon button">
+          <i class="remove icon"></i>
+        </div>
+      </div>
+    </div>
     <div class="ui card">
-      <div class="content">
-        <label class="header">{{food}}, {{foodCategory}}</label>
+      <div class="image">
+        <img src="{{imageUrl}}">
       </div>
       <div class="extra content">
-        {{quantity}} {{quantityDescriptor}}
+      {{quantity}} {{quantityDescriptor}}
       </div>
     </div>
   </div>

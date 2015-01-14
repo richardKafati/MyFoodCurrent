@@ -1,6 +1,7 @@
 <template name="pageGrid">
   <div class="ui page grid">
     <div class="four wide column">
+      <!-- Not sure why this sticky isn't working -->
       <div class="ui sticky">
         <div class="controls ui segment">
           <div class="ui segment">
@@ -9,27 +10,33 @@
           {{#each foodFilters}}
             {{> foodFilter}}
           {{/each}}
-          <div class="addFood ui form">
-            <div class="field">
-              <input type="text" placeholder="add food">
+          <!-- Semantic-ui form wouldn't work by default (maybe needed some script or something) but it works when I wrap a form around it. Notice the submit is traditional, i.e. not a ui submit button and could be outside the ui form but within the traditional form; it is only inside the ui form to take advatage of the spacing from the other input form elements provided but <div class="field"> -->
+          <form class="add-food">
+            <div class="ui form">
+              <div class="field">
+                <input type="text" name="food" placeholder="add food">
+              </div>
+              <div class="field">
+                <input type="text" name="foodCategory" placeholder="food category">
+              </div>
+              <div class="field">
+                <input type="text" name="quantity" placeholder="quantity, eg. 4">
+              </div>
+              <div class="field">
+                <input type="text" name="quantityDescriptor" placeholder="eg. bananas, boxes, cans etc.">
+              </div>
+              <div class="field">
+                <input type="submit" value="Add" class="ui button" />
+              </div>
             </div>
-            <div class="field">
-              <input type="text" placeholder="food category">
-            </div>
-            <div class="field">
-              <input type="text" placeholder="quantity, eg. 4">
-            </div>
-            <div class="field">
-              <input type="text" placeholder="eg. bananas, boxes, cans etc.">
-            </div>
-          </div>
+          </form>
         </div>
       </div>
     </div>
-    <div class="twelve wide column">
+    <div class="twelve wide column" id="foods-available">
       {{#each foodCategoriesChecked}}
         <div class="ui grid">
-          {{#each foodsOfThatCategory}}
+          {{#each foodsOfThatCategory this}}
             {{> food}}
           {{/each}}
         </div>
