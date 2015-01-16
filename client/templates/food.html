@@ -7,12 +7,40 @@
         </div>
       </div>
     </div>
-    <div class="ui card">
+    <!--Not sure weather to use openModal or open-modal; even for foodNameWithoutSpaces below.-->
+    <div class="openModal ui card">
       <div class="image">
         <img src="{{imageUrl}}">
       </div>
       <div class="extra content">
-      {{quantity}} {{quantityDescriptor}}
+        {{quantity}} {{quantityDescriptor}}
+      </div>
+    </div>
+  </div>
+
+  <div id="{{foodNameWithoutSpaces food}}ModalView" class="ui modal">
+    <i class="close icon"></i>
+    <div class="header">
+      {{food}}, {{foodCategory}}
+    </div>
+    <div class="content">
+      <div class="ui medium image">
+        <img src="{{imageUrl}}">
+      </div>
+      <div class="description">
+        <form class="update-food">
+          <div class="ui form">
+            <div class="field">
+              <input type="text" name="quantity" placeholder="{{quantity}}">
+            </div>
+            <div class="field">
+              <input type="text" name="quantityDescriptor" placeholder="{{quantityDescriptor}}">
+            </div>
+            <div class="field">
+              <input type="submit" value="Update" class="ui button" />
+            </div>
+          </div>
+        </form>
       </div>
     </div>
   </div>
